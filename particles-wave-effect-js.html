@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captivating Homepage Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1460501501851-d5946a18e552');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 24px;
+            margin-left: 22px;
+        }
+
+        .visit-us {
+            display: flex;
+            align-items: center;
+            padding-right: 18px;
+        }
+
+        .visit-us .icon-container:last-child {
+            margin-right: 0;
+        }
+
+        #content {
+            padding-top: 80px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background-color: #0000000f;
+            min-height: calc(100vh - 130px);
+        }
+
+        #logo {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://images.unsplash.com/photo-1460501501851-d5946a18e552');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 4s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        #heading {
+            text-align: center;
+            font-size: 24px;
+            z-index: 2;
+            margin-top: -20px;
+        }
+
+        #actions {
+            text-align: center;
+            font-size: 24px;
+            z-index: 2;
+            margin-top: 20px;
+        }
+
+        #actions h1 {
+            margin-top: -100px;
+        }
+
+        #buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .icon-link {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-link:hover {
+            opacity: 0.7;
+        }
+
+        .playstore-icon {
+            color: #34a853;
+        }
+
+        .youtube-icon {
+            color: #ff0000;
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .fab {
+            margin-right: 5px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .icon-container {
+                margin-right: 0px;
+            }
+
+            .visit-us {
+                padding-right: 0;
+            }
+
+            #actions {
+                font-size: 18px;
+            }
+
+            #buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 150px;
+            }
+
+            .footer {
+                padding-top: 0 !important;
+
+            }
+        }
+
+        .footer {
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            background-color: #1f232842;
+            padding: 20px 0;
+            clear: both;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content p:first-child {
+            margin-bottom: 4px;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .footer-link:hover {
+            color: #ff4081;
+            border-bottom-color: #ff4081;
+            cursor: pointer;
+        }
+
+        .icon-link {
+            text-decoration: none;
+        }
+
+        .youtube-icon {
+            color: #ff0000;
+            margin-right: 10px;
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+
+        ul.credit-links {
+            list-style-type: circle;
+        }
+
+        ul.credit-links li {
+            margin-bottom: 5px;
+        }
+
+        ul.credit-links li {
+            font-size: 14px;
+        }
+
+        .credits {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <h1>JavaScript Functions</h1>
+        </div>
+        <div class="visit-us"> <span>
+                <span class="icon-container">
+                    <a href="https://play.google.com/store/apps/developer?id=Supreme+Soft"
+                        class="icon-link playstore-icon" target="_blank">
+                        <i class="fab fa-google-play fa-lg"></i>
+                    </a>
+                </span>
+
+                <span class="icon-container">
+                    <a href="https://www.youtube.com/@supreme-soft" class="icon-link youtube-icon" target="_blank">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                </span>
+                <span class="icon-container">
+                    <a href="https://github.com/Supreme-Soft" class="icon-link github-icon" target="_blank">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </header>
+    <div id="content">
+        <div id="logo"></div>
+        <div id="actions">
+            <h1>Enjoy Animation!</h1>
+        </div>
+        <canvas id="particleCanvas"></canvas>
+        <div id="buttons">
+            <a href="#" class="button"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            <a href="#" class="button"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Image credits go to the <a class="footer-link" onclick="openCredit()">creators</a>, provided under
+                Creative Commons licenses.</p>
+
+            <div class="credits" style="display: none;">
+                <ul class="credit-links">
+                    <li>Photo by <a class="footer-link"
+                            href="https://unsplash.com/@timmarshall?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tim
+                            Marshall</a> on <a class="footer-link"
+                            href="https://unsplash.com/photos/body-of-water-dYO_5KOMEkA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+                    </li>
+                </ul>
+            </div>
+            <p>&copy; 2024 <a class="footer-link" href="https://supreme-soft.blogspot.com">Supreme Soft</a>. All Rights
+                Reserved.</a></p>
+        </div>
+    </footer>
+    <script>
+        function openCredit(event) {
+            var credits = document.querySelector('.credits');
+            if (credits.style.display === 'none') {
+                credits.style.display = 'block';
+            } else {
+                credits.style.display = 'none';
+            }
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', function (event) {
+            var credits = document.querySelector('.credits');
+            var link = document.querySelector('.footer-link');
+            var isCreditsClicked = credits.contains(event.target) || event.target === link;
+            if (!isCreditsClicked) {
+                credits.style.display = 'none';
+            }
+        });
+
+    </script>
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        let waveOffset = 0;
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+
+            draw() {
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                gradient.addColorStop(0, '#ffffff');
+                gradient.addColorStop(1, '#333333');
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            drawWave();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        function drawWave() {
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            for (let i = 0; i < canvas.width; i++) {
+                ctx.lineTo(i, canvas.height / 2 + Math.sin(i * 0.01 + waveOffset) * 50);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.fill();
+
+            waveOffset += 0.1;
+        }
+
+        window.addEventListener('mousemove', (event) => {
+            const pointerX = event.clientX - canvas.getBoundingClientRect().left;
+            const pointerY = event.clientY - canvas.getBoundingClientRect().top;
+
+            for (let i = 0; i < 5; i++) {
+                particles.push(new Particle(pointerX, pointerY));
+            }
+        });
+    </script>
+</body>
+
+</html>
