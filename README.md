@@ -1,2 +1,4 @@
 # particles-wave-effect-js
- The animation includes interactive particles and a dynamic wave effect using JavaScript.
+- Eye-catching animation created with HTML canvas and JavaScript.
+- Interactive particles that follow the cursor movement.
+- Dynamic wave effect that adds a sense of motion to the background.
